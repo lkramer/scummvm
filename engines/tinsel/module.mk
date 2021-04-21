@@ -41,6 +41,7 @@ MODULE_OBJS := \
 	scroll.o \
 	sound.o \
 	strres.o \
+	sysreel.o \
 	sysvar.o \
 	text.o \
 	timers.o \

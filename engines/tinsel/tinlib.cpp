@@ -60,6 +60,7 @@
 #include "tinsel/scroll.h"
 #include "tinsel/sound.h"
 #include "tinsel/strres.h"
+#include "tinsel/sysreel.h"
 #include "tinsel/sysvar.h"
 #include "tinsel/text.h"
 #include "tinsel/timers.h"		// For ONE_SECOND constant
@@ -2754,14 +2755,10 @@ static void SetPalette(SCNHANDLE hPal, bool escOn, int myEscape) {
  * Set system reel
  */
 static void SetSystemReel(int index, SCNHANDLE reel) {
-	switch (index) {
-		case 11:
-			DecCursor(reel);
-			break;
-		default:
-			warning("SetSystemReel(%d, %08X), STUBBED", index, reel);
-			break;
+	if ((index == 11) && (reel != 0)) {
+		DecCursor(reel);
 	}
+	SetSysReel(index, reel);
 }
 
 /**
